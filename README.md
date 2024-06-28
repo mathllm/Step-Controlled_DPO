@@ -5,7 +5,7 @@ This is a repository for the paper: Step-Controlled DPO: Leveraging Stepwise Err
 The paper is at `paper/SCDPO.pdf`.
 
 <p align="center">
-  <img src="./images/data.pdf">
+  <img src="./images/data.png">
 </p>
 
 ### DPO and SCDPO Data Generation
