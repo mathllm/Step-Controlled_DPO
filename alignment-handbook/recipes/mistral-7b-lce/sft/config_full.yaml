@@ -1,0 +1,50 @@
+# Model arguments
+model_name_or_path: /mnt/cache/sharemath/models/mistral/Mistral-7B-v0.1
+model_revision: main
+tokenizer_name_or_path: /mnt/cache/sharemath/models/mistral/Mistral-7B-v0.1
+torch_dtype: bfloat16
+use_flash_attention_2: true
+
+# Data training arguments
+chat_template: "{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ '<|user|>' }}{% elif message['role'] == 'system' %}\n{{ '<|system|>' }}{% elif message['role'] == 'assistant' %}\n{{ '<|assistant|>' }}{% endif %}\n{% for block in message['content'] %}\n{% if block['type'] == 'text' %}\n{{ '<|text|>' }}{% elif block['type'] == 'code' %}\n{{ '<|code|>' }}{% elif block['type'] == 'execution' %}\n{{ '<|execution|>' }}{% endif %}\n{{ block['content'] + '<|endofblock|>' }}{% endfor %}\n{{ '<|endofmessage|>' }}{% endfor %}"
+dataset_mixer:
+  /mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce: 1.0
+dataset_splits:
+- train
+- test
+preprocessing_num_workers: 12
+
+# SFT trainer config
+bf16: true
+dataset_kwargs:
+  add_special_tokens: false  # We already wrap <bos> and <eos> in the chat template
+  append_concat_token: false # No need to add <eos> across samples
+do_eval: true
+evaluation_strategy: epoch
+gradient_accumulation_steps: 2
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+learning_rate: 1.0e-05
+max_grad_norm: 1.0
+log_level: info
+logging_steps: 5  
+logging_strategy: steps
+lr_scheduler_type: cosine
+max_seq_length: 2048
+max_steps: -1
+num_train_epochs: 3
+save_steps: 400
+output_dir: /mnt/cache/luzimu/rlhf_math/alignment-handbook/outs/Mistral-7B-v0.1-lce
+overwrite_output_dir: true
+per_device_eval_batch_size: 4
+per_device_train_batch_size: 4
+push_to_hub: false
+remove_unused_columns: true
+report_to:
+- tensorboard
+- wandb
+run_name: Mistral-7B-v0.1-lce
+save_strategy: "steps"
+seed: 42
+warmup_ratio: 0.1

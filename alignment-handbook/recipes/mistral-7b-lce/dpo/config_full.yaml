@@ -1,0 +1,45 @@
+# Model arguments
+model_name_or_path: /mnt/cache/luzimu/rlhf_math/alignment-handbook/outs/Mistral-7B-v0.1-lce
+torch_dtype: bfloat16
+
+# Data training arguments
+# For definitions, see: src/h4/training/config.py
+chat_template: "{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ '<|user|>' }}{% elif message['role'] == 'system' %}\n{{ '<|system|>' }}{% elif message['role'] == 'assistant' %}\n{{ '<|assistant|>' }}{% endif %}\n{% for block in message['content'] %}\n{% if block['type'] == 'text' %}\n{{ '<|text|>' }}{% elif block['type'] == 'code' %}\n{{ '<|code|>' }}{% elif block['type'] == 'execution' %}\n{{ '<|execution|>' }}{% endif %}\n{{ block['content'] + '<|endofblock|>' }}{% endfor %}\n{{ '<|endofmessage|>' }}{% endfor %}"
+dataset_mixer:
+  /mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dpo: 1.0
+dataset_splits:
+- train
+- test
+preprocessing_num_workers: 12
+
+# DPOTrainer arguments
+bf16: true
+beta: 0.1
+do_eval: true
+evaluation_strategy: steps
+eval_steps: 100
+gradient_accumulation_steps: 8
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: False
+hub_model_id: zephyr-7b-gemma-dpo
+learning_rate: 1.0e-7
+log_level: info
+logging_steps: 10
+lr_scheduler_type: cosine
+max_length: 1024
+max_prompt_length: 512
+num_train_epochs: 2
+save_steps: 50
+optim: adamw_torch
+output_dir: /mnt/cache/luzimu/rlhf_math/alignment-handbook/outs/Mistral-7B-v0.1-lce_dpo
+per_device_train_batch_size: 2
+per_device_eval_batch_size: 4
+push_to_hub: false
+report_to:
+- tensorboard
+- wandb
+run_name: Mistral-7B-v0.1-lce_dpo
+save_strategy: "steps"
+seed: 42
+warmup_ratio: 0.1

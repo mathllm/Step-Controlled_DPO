@@ -1,0 +1,9 @@
+.env
+alignment-handbook/outs
+alignment-handbook/results
+data
+outs
+trl/outs
+models
+wandb
+DeepSeek-Math/.env
