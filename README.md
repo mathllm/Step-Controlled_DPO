@@ -8,6 +8,12 @@ The paper is at `paper/SCDPO.pdf`.
   <img src="./images/data.png">
 </p>
 
+### Models
+
+| Model | Checkpoint | GSM8k | MATH  |
+| ----- |------| ---- |-------|
+| MetaMath-70B-V1.0 | 🤗 <a href="https://huggingface.co/MathGenie/InternLM2-SFT-SCDPO" target="_blank">HF Link</a>| **88.5**  |  **58.1**	|
+
 ### DPO and SCDPO Data Generation
 
 The code for DPO and SCDPO data generation is in `src`. `src/positive_negative_lce_gen`, `src/positive_negative_lce_gen_internlm_ape` and `src/positive_negative_lce_gen_mathcode_mistral_addsys` are for the generation of DPO data, while `src/step_controled_dpo_lce_internlm`, `src/step_controled_dpo_lce_mathcoder` and `src/step_controled_dpo_lce` are for the generation of SCDPO data.
