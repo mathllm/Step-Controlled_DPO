@@ -38,14 +38,14 @@ def get_initial_data(in_file, out_dir, n):
 
     
 def main_gsm8k():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/gsm8k/result_0_round0.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/gsm8k"
+    in_file = "data/lce_solutions/mistral_lce_alignment_sample_1/gsm8k/result_0_round0.jsonl"
+    out_dir = "data/lce_solutions/mistral_lce_alignment_sample_1/gsm8k"
     n = 6
     get_initial_data(in_file, out_dir, n)
 
 def main_math():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/math/result_0_round0.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/math"
+    in_file = "data/lce_solutions/mistral_lce_alignment_sample_1/math/result_0_round0.jsonl"
+    out_dir = "data/lce_solutions/mistral_lce_alignment_sample_1/math"
     n = 6
     get_initial_data(in_file, out_dir, n)
 

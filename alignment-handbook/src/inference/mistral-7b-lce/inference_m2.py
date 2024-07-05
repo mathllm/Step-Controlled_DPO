@@ -164,7 +164,7 @@ class API:
 
 def code_generation(query):
     query = query.replace("请回答以下问题并把答案放在\\boxed{}里：", '').replace("Solve the problem and put your answer in '\\boxed{}'. \n", "")
-    system = ""
+    system = "Below is a math problem. Please solve it step by step."
     # system = "Solve the problem below, and you must put your answer in one and only one '\\boxed{}'.\n\nTo solve the problem using code step by step, even in every sub-step."
     prompt = f'<|system|><|text|>{system}<|endofblock|><|endofmessage|><|user|><|text|>{query}<|endofblock|><|endofmessage|><|assistant|>'
 
@@ -236,18 +236,21 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args.ch)
 
-    ip = {
-        "3epoch": "10.119.17.131",
-    }
+    ip = "127.0.0.1"
     
-    api = API(port="8001", ip=ip[args.ch])
-    dir = f"Mistral-7B-v0.1-lce/sft/" + args.ch
+    api = API(port="8001", ip=ip)
+    
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    with open(os.path.join(dir_path, "config.json"), "r") as f:
+        config = json.load(f)
+    
+    dir = f"{config['model_name']}/" + args.ch
 
     # GSM8K200 APE500 gaokao-mathcloze gaokao-mathqa TAL500 CMMLU AGI
     for name in ["MATH_2", "MATH_3"]:
     # for name in ["GSM8K"]:
-        input_path = f'/mnt/cache/luzimu/open_source_repositories/Step-Controlled_DPO/alignment-handbook/src/inference/all_test/{name}_test.jsonl'
-        output_path = f'/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}/{name}/{name}_test_result.jsonl'
+        input_path = f'alignment-handbook/src/inference/all_test/{name}_test.jsonl'
+        output_path = f'alignment-handbook/results/inference/{dir}/{name}/{name}_test_result.jsonl'
 
         # output_path = f'/mnt/cache/wangke/code_generation/outs/debug/{name}/{name}_test_result.jsonl'
         if not os.path.exists("/".join(output_path.split("/")[:-1])):

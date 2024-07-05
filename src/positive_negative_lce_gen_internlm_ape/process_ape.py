@@ -4,7 +4,7 @@ import sys
 from tqdm import tqdm
 from argparse import ArgumentParser
 
-sys.path.append("/mnt/cache/luzimu/rlhf_math/src/different_negative_gen")
+sys.path.append("src/different_negative_gen")
 from utils import is_equal
 
 def save_jsonl(datas, file_name):
@@ -85,10 +85,10 @@ def main():
     args = get_args()
     num_correct_thresh = 1
     num_wrong_thresh = 1
-    in_file = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/{args.i}_round{args.r}.jsonl'
-    source_file = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/to_be_run_{args.i}_round{args.r}.jsonl'
-    result_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/result_{args.i}.jsonl"
-    to_be_run_file = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/to_be_run_{args.i}_round{args.r + 1}.jsonl'
+    in_file = f'data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/{args.i}_round{args.r}.jsonl'
+    source_file = f'data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/to_be_run_{args.i}_round{args.r}.jsonl'
+    result_file = f"data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/result_{args.i}.jsonl"
+    to_be_run_file = f'data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/to_be_run_{args.i}_round{args.r + 1}.jsonl'
     process(args, in_file, source_file, result_file, to_be_run_file, num_correct_thresh, num_wrong_thresh)
             
 

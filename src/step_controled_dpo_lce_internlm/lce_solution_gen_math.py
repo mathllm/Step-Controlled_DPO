@@ -257,8 +257,8 @@ if __name__ == '__main__':
     
     api = API(port="8001", ip=ip)
 
-    input_path = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/math/to_be_run_{args.i}_round{args.r}.jsonl'
-    output_path = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/math/{args.i}_round{args.r}.jsonl'
+    input_path = f'data/lce_solutions/internlm_negative_positive_gen/sc_dpo/math/to_be_run_{args.i}_round{args.r}.jsonl'
+    output_path = f'data/lce_solutions/internlm_negative_positive_gen/sc_dpo/math/{args.i}_round{args.r}.jsonl'
 
     # output_path = f'/mnt/cache/wangke/code_generation/outs/debug/{name}/{name}_test_result.jsonl'
     if not os.path.exists("/".join(output_path.split("/")[:-1])):

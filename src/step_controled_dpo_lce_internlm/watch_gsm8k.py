@@ -19,7 +19,7 @@ def load_jsonl(in_file):
 def watch():
     count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     rounds = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/gsm8k"
+    dir = "data/lce_solutions/internlm_negative_positive_gen/sc_dpo/gsm8k"
     
     while True:
         for i in range(18):

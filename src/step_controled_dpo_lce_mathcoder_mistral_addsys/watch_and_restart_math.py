@@ -24,17 +24,17 @@ def get_args():
 
 def restart_session(r, i):
     os.system(f"tmux kill-session -t {i}")
-    cmd = f"tmux new-session -d -s {i} 'python /mnt/cache/luzimu/rlhf_math/src/step_controled_dpo_lce_mathcoder_mistral_addsys/lce_solution_gen_math.py {r} -i {i} -a 127.0.0.1'"
+    cmd = f"tmux new-session -d -s {i} 'python src/step_controled_dpo_lce_mathcoder_mistral_addsys/lce_solution_gen_math.py {r} -i {i} -a 127.0.0.1'"
     os.system(cmd)
 
 def restart_loop(r, i):
     os.system(f"tmux kill-session -t loop{i}")
-    cmd = f"tmux new-session -d -s loop{i} 'bash /mnt/cache/luzimu/rlhf_math/src/step_controled_dpo_lce_mathcoder_mistral_addsys/scripts/math.sh {r} 127.0.0.1 {i}'"
+    cmd = f"tmux new-session -d -s loop{i} 'bash src/step_controled_dpo_lce_mathcoder_mistral_addsys/scripts/math.sh {r} 127.0.0.1 {i}'"
     os.system(cmd)
 
 def watch():
     count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo"
+    dir = "data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo"
     args = get_args()
     i = args.i
 

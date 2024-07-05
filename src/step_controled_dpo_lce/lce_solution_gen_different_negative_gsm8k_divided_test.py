@@ -273,8 +273,8 @@ if __name__ == '__main__':
     
     api = API(port="8001", ip="10.119.17.219")
 
-    input_path = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/gsm8k/to_be_run_0_round1.jsonl'
-    output_path = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/other_models/internlm-20b/correct_solutions_gen/gsm8k/test.jsonl'
+    input_path = f'data/lce_solutions/different_ranked_negative_divided/gsm8k/to_be_run_0_round1.jsonl'
+    output_path = f'data/lce_solutions/different_ranked_negative_divided_tmp1/other_models/internlm-20b/correct_solutions_gen/gsm8k/test.jsonl'
 
     # output_path = f'/mnt/cache/wangke/code_generation/outs/debug/{name}/{name}_test_result.jsonl'
     if not os.path.exists("/".join(output_path.split("/")[:-1])):

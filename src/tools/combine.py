@@ -61,58 +61,58 @@ def combine_with_weight(in_files, out_file):
     # save_jsonl(new_datas, out_file)
     
 def main_gsm8k():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/gsm8k/result_{i}.jsonl" for i in range(6)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results.jsonl"
+    in_files = [f"data/lce_solutions/mistral_lce_alignment_sample_1/gsm8k/result_{i}.jsonl" for i in range(6)]
+    out_file = "data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results.jsonl"
     combine(in_files, out_file)
 
 def main_math():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/math/result_{i}.jsonl" for i in range(6)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results.jsonl"
+    in_files = [f"data/lce_solutions/mistral_lce_alignment_sample_1/math/result_{i}.jsonl" for i in range(6)]
+    out_file = "data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results.jsonl"
     combine(in_files, out_file)
 
 def main_gsm8k_internlm():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/gsm8k/result_{i}.jsonl" for i in range(12)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results.jsonl"
+    in_files = [f"data/lce_solutions/internlm_negative_positive_gen/naive_dpo/gsm8k/result_{i}.jsonl" for i in range(12)]
+    out_file = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results.jsonl"
     combine(in_files, out_file)
 
 def main_math_internlm():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/math/result_{i}.jsonl" for i in range(12)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results.jsonl"
+    in_files = [f"data/lce_solutions/internlm_negative_positive_gen/naive_dpo/math/result_{i}.jsonl" for i in range(12)]
+    out_file = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results.jsonl"
     combine(in_files, out_file)
 
 def main_ape_internlm():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/result_{i}.jsonl" for i in range(12)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results.jsonl"
+    in_files = [f"data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/result_{i}.jsonl" for i in range(12)]
+    out_file = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results.jsonl"
     combine(in_files, out_file)
     
 def main_gsm8k_internlm_no_ch():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/gsm8k/result_{i}.jsonl" for i in range(18)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results.jsonl"
+    in_files = [f"data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/gsm8k/result_{i}.jsonl" for i in range(18)]
+    out_file = "data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results.jsonl"
     combine(in_files, out_file)
 
 def main_math_internlm_no_ch():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/math/result_{i}.jsonl" for i in range(18)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results.jsonl"
+    in_files = [f"data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/math/result_{i}.jsonl" for i in range(18)]
+    out_file = "data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results.jsonl"
     combine(in_files, out_file)
     
 def main_gsm8k_mathcoder():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_dpo/naive_dpo/gsm8k/result_{i}.jsonl" for i in range(10)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_dpo/naive_dpo/processed_results/gsm8k_results.jsonl"
+    in_files = [f"data/lce_solutions/mathcoder_dpo/naive_dpo/gsm8k/result_{i}.jsonl" for i in range(10)]
+    out_file = "data/lce_solutions/mathcoder_dpo/naive_dpo/processed_results/gsm8k_results.jsonl"
     combine(in_files, out_file)
 
 def main_math_mathcoder():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_dpo/naive_dpo/math/result_{i}.jsonl" for i in range(20)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_dpo/naive_dpo/processed_results/math_results.jsonl"
+    in_files = [f"data/lce_solutions/mathcoder_dpo/naive_dpo/math/result_{i}.jsonl" for i in range(20)]
+    out_file = "data/lce_solutions/mathcoder_dpo/naive_dpo/processed_results/math_results.jsonl"
     combine(in_files, out_file)
     
 def main_gsm8k_mathcoder_addsys():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_dpo_addsy/naive_dpo/gsm8k/result_{i}.jsonl" for i in range(16)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_dpo_addsy/naive_dpo/processed_results/gsm8k_results.jsonl"
+    in_files = [f"data/lce_solutions/mathcoder_dpo_addsy/naive_dpo/gsm8k/result_{i}.jsonl" for i in range(16)]
+    out_file = "data/lce_solutions/mathcoder_dpo_addsy/naive_dpo/processed_results/gsm8k_results.jsonl"
     combine(in_files, out_file)
 
 def main_math_mathcoder_addsys():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_dpo_addsy/naive_dpo/math/result_{i}.jsonl" for i in range(16)]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_dpo_addsy/naive_dpo/processed_results/math_results.jsonl"
+    in_files = [f"data/lce_solutions/mathcoder_dpo_addsy/naive_dpo/math/result_{i}.jsonl" for i in range(16)]
+    out_file = "data/lce_solutions/mathcoder_dpo_addsy/naive_dpo/processed_results/math_results.jsonl"
     combine(in_files, out_file)
 
 if __name__ == "__main__":

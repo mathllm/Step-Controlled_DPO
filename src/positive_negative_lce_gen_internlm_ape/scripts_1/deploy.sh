@@ -20,5 +20,5 @@ conda activate cloud-ai-lab
 pip install latex2sympy2
 pip install Levenshtein
 
-tmux new-session -d -s loop${index} "bash /mnt/cache/luzimu/rlhf_math/src/positive_negative_lce_gen_internlm_ape/scripts_1/${dataset}.sh ${round} ${address} ${index}"
-tmux new-session -d -s watch "bash /mnt/cache/luzimu/rlhf_math/src/positive_negative_lce_gen_internlm_ape/scripts_1/watch.sh ${index} ${dataset}"
+tmux new-session -d -s loop${index} "bash src/positive_negative_lce_gen_internlm_ape/scripts_1/${dataset}.sh ${round} ${address} ${index}"
+tmux new-session -d -s watch "bash src/positive_negative_lce_gen_internlm_ape/scripts_1/watch.sh ${index} ${dataset}"

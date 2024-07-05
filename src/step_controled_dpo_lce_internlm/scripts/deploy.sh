@@ -22,8 +22,8 @@ conda activate cloud-ai-lab
 pip install latex2sympy2
 pip install Levenshtein
 
-tmux new-session -d -s loop${index} "bash /mnt/cache/luzimu/rlhf_math/src/step_controled_dpo_lce_internlm/scripts/${dataset}.sh ${round} ${address} ${index}"
-tmux new-session -d -s watch "bash /mnt/cache/luzimu/rlhf_math/src/step_controled_dpo_lce_internlm/scripts/watch.sh ${index} ${dataset}"
+tmux new-session -d -s loop${index} "bash src/step_controled_dpo_lce_internlm/scripts/${dataset}.sh ${round} ${address} ${index}"
+tmux new-session -d -s watch "bash src/step_controled_dpo_lce_internlm/scripts/watch.sh ${index} ${dataset}"
 
 sleep 2s
 tmux ls

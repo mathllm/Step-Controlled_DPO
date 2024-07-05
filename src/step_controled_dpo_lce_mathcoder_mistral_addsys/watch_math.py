@@ -19,7 +19,7 @@ def load_jsonl(in_file):
 def watch():
     count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     rounds = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo"
+    dir = "data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo"
     # args = get_args()
     # i = args.i
     

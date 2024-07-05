@@ -36,9 +36,9 @@ def process_metamath_to_alignment(in_file, out_file_train, out_file_test):
     save_jsonl(new_datas[test_train_split:], out_file_train)
 
 def main():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/MetaMathQA_processed/MetaMathQA-395K.jsonl"
-    out_file_train = "/mnt/cache/luzimu/rlhf_math/data/MetaMathQA_alignment/train/train.jsonl"
-    out_file_test = "/mnt/cache/luzimu/rlhf_math/data/MetaMathQA_alignment/test/test.jsonl"
+    in_file = "data/MetaMathQA_processed/MetaMathQA-395K.jsonl"
+    out_file_train = "data/MetaMathQA_alignment/train/train.jsonl"
+    out_file_test = "data/MetaMathQA_alignment/test/test.jsonl"
     process_metamath_to_alignment(in_file, out_file_train, out_file_test)
 
 if __name__ == "__main__":

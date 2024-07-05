@@ -25,8 +25,8 @@ def watch(dir):
             print(f"{ch}:")
             dir1 = dir + "/" + ch
             for name in ["GSM8K", "MATH_0", "MATH_1", "MATH_2", "MATH_3", "SVAMP", "simuleq", "mathematics", "asdiv", "mawps"]:
-                source_file = f'/mnt/cache/luzimu/open_source_repositories/Step-Controlled_DPO/alignment-handbook/src/inference/all_test/{name}_test.jsonl'
-                file_path = f'/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir1}/{name}/{name}_test_result.jsonl'
+                source_file = f'alignment-handbook/src/inference/all_test/{name}_test.jsonl'
+                file_path = f'alignment-handbook/results/inference/{dir1}/{name}/{name}_test_result.jsonl'
 
                 if not os.path.exists(file_path):
                     length = 0

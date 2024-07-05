@@ -24,7 +24,7 @@ def get_args():
 
 def watch(args):
     count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative"
+    dir = "data/lce_solutions/ascending_temperature_negative"
     while True:
         for i in range(6):
             file_paths = glob(f"{dir}/{args.d}/{i}_round*.jsonl")

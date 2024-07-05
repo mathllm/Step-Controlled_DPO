@@ -90,43 +90,43 @@ def get_initial_data_milti_infiles(in_files, out_dir, n):
 
 def main_gsm8k():
     in_file = "/mnt/cache/luzimu/datasets_en/GSM8K/GSM8K_train.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/gsm8k"
+    out_dir = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/gsm8k"
     n = 6
     get_initial_data(in_file, out_dir, n)
 
 def main_math():
     in_file = "/mnt/cache/luzimu/datasets_en/MATH/MATH_train.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/math"
+    out_dir = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/math"
     n = 6
     get_initial_data(in_file, out_dir, n)
 
 def main_ape():
     in_file = "/mnt/cache/luzimu/datasets_ch/ape210k/outs/processed/train.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape"
+    out_dir = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape"
     n = 6
     get_initial_data(in_file, out_dir, n)
 
 def main_gsm8k_multi():
-    in_file = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/gsm8k/result_{i}.jsonl" for i in range(6)]
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo_1/gsm8k"
+    in_file = [f"data/lce_solutions/internlm_negative_positive_gen/naive_dpo/gsm8k/result_{i}.jsonl" for i in range(6)]
+    out_dir = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo_1/gsm8k"
     n = 12
     get_initial_data_milti_infiles(in_file, out_dir, n)
 
 def main_math_multi():
-    in_file = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/math/result_{i}.jsonl" for i in range(6)]
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo_1/math"
+    in_file = [f"data/lce_solutions/internlm_negative_positive_gen/naive_dpo/math/result_{i}.jsonl" for i in range(6)]
+    out_dir = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo_1/math"
     n = 12
     get_initial_data_milti_infiles(in_file, out_dir, n)
 
 def main_ape_multi():
-    in_file = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/result_{i}.jsonl" for i in range(6)]
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo_1/ape"
+    in_file = [f"data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape/result_{i}.jsonl" for i in range(6)]
+    out_dir = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo_1/ape"
     n = 12
     get_initial_data_milti_infiles(in_file, out_dir, n)
     
 def main_math_multi_1():
-    in_file = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/math/result_{i}.jsonl" for i in range(12)]
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo_1/math"
+    in_file = [f"data/lce_solutions/internlm_negative_positive_gen/naive_dpo/math/result_{i}.jsonl" for i in range(12)]
+    out_dir = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo_1/math"
     n = 12
     get_initial_data_milti_infiles(in_file, out_dir, n)
 

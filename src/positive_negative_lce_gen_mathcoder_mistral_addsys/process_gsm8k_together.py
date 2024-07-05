@@ -5,7 +5,7 @@ from tqdm import tqdm
 from argparse import ArgumentParser
 from glob import glob
 
-sys.path.append("/mnt/cache/luzimu/rlhf_math/src/different_negative_gen")
+sys.path.append("src/different_negative_gen")
 from utils import is_equal
 
 def save_jsonl(datas, file_name):
@@ -84,11 +84,11 @@ def main():
     for i in range(10):
         num_correct_thresh = 1
         num_wrong_thresh = 2
-        dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/gsm8k"
+        dir = "data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/gsm8k"
         in_files = glob(f"{dir}/{i}_round*.jsonl")
         r = sorted([int(file_path.replace(f"{dir}/{i}_round", "").replace(".jsonl", "")) for file_path in in_files])[-1]
         in_files = [f"{dir}/{i}_round{j + 1}.jsonl" for j in range(r)]
-        result_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/gsm8k/result_{i}.jsonl"
+        result_file = f"data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/gsm8k/result_{i}.jsonl"
         process(in_files, result_file, num_correct_thresh, num_wrong_thresh)
             
 

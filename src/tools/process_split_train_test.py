@@ -32,7 +32,7 @@ def process_to_alignment(in_files, out_file_train, out_file_test):
 
 def main():
     in_files = ["/mnt/cache/luzimu/code_generation-master/data/train/back_translation/train_mixed/apegpt4only_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_442725.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/ape_math_gsm8k_lce"
+    out_dir = f"data/ape_math_gsm8k_lce"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -43,7 +43,7 @@ def main():
 
 def main1():
     in_files = ["/mnt/cache/luzimu/code_generation-master/data/train/back_translation/train_mixed/ape_122382_gsm8k_math_81087_203479.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/ape_122382_gsm8k_math_81087_lce"
+    out_dir = f"data/ape_122382_gsm8k_math_81087_lce"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -54,7 +54,7 @@ def main1():
 
 def main_ape_th2():
     in_files = ["/mnt/cache/luzimu/code_generation-master/data/train/back_translation/train_mixed/ape_th2_326221_gsm8k_math_81087_407308.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/ape_th2_326221_gsm8k_math_81087_lce"
+    out_dir = f"data/ape_th2_326221_gsm8k_math_81087_lce"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -65,7 +65,7 @@ def main_ape_th2():
 
 def main_ape_th1():
     in_files = ["/mnt/cache/luzimu/code_generation-master/data/train/back_translation/train_mixed/ape_th1_169161_gsm8k_math_81087_250248.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/ape_th1_169161_gsm8k_math_81087_lce"
+    out_dir = f"data/ape_th1_169161_gsm8k_math_81087_lce"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):

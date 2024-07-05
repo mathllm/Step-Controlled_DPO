@@ -13,7 +13,7 @@ import zmq
 import time
 from argparse import ArgumentParser
 
-sys.path.append("/mnt/cache/luzimu/rlhf_math/src/different_negative_gen")
+sys.path.append("src/different_negative_gen")
 from utils import is_equal
 
 def timestamp() -> str:
@@ -291,8 +291,8 @@ if __name__ == '__main__':
     
     api = API(port="8001", ip=ip[args.i])
 
-    input_path = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative/gsm8k/{args.i}_round{args.r - 1}.jsonl'
-    output_path = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative/gsm8k/{args.i}_round{args.r}.jsonl'
+    input_path = f'data/lce_solutions/different_ranked_negative/gsm8k/{args.i}_round{args.r - 1}.jsonl'
+    output_path = f'data/lce_solutions/different_ranked_negative/gsm8k/{args.i}_round{args.r}.jsonl'
 
     # output_path = f'/mnt/cache/wangke/code_generation/outs/debug/{name}/{name}_test_result.jsonl'
     if not os.path.exists("/".join(output_path.split("/")[:-1])):

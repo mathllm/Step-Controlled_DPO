@@ -10,7 +10,7 @@ else
 fi
 unset __conda_setup
 
-conda activate /mnt/cache/luzimu/rlhf_math/.env/vllmenv
+conda activate .env/vllmenv
 
 export NCCL_DEBUG=WARN
 export NCCL_SOCKET_IFNAME=eth0
@@ -35,7 +35,7 @@ echo "Running on $CHUNKS GPUs: ${GPULIST[@]}"
 # TODO: test the speed of 1 gpu and multiple gpus
 
 python -m vllm.entrypoints.api_server \
---model /mnt/cache/luzimu/rlhf_math/alignment-handbook/outs/internlm2-20b_lce \
+--model alignment-handbook/outs/internlm2-20b_lce \
 --trust-remote-code \
 --seed 42 \
 --tensor-parallel-size 1 \

@@ -48,7 +48,7 @@ def main():
     print(f"total: {total_num}")
 
 def main1():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/internlm_gsm8k_math_no_ch_1x1_1x3/data/train/math_gsm8k_train.jsonl"
+    in_file = "data/internlm_gsm8k_math_no_ch_1x1_1x3/data/train/math_gsm8k_train.jsonl"
     datas = load_jsonl(in_file)
     gsm8k_file = ""
     gsm8k_datas = load_jsonl("/mnt/cache/luzimu/datasets_en/GSM8K/GSM8K_train.jsonl")

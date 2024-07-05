@@ -56,33 +56,33 @@ def analyze_different_negative(in_file, out_file):
         
 
 def main_gsm8k():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/analyze_gsm8k_train_lce_round53_step_controled_negative.json"
+    in_file = "data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
+    out_file = "data/lce_solutions/different_ranked_negative_divided/processed_results/analyze_gsm8k_train_lce_round53_step_controled_negative.json"
     analyze_different_negative(in_file, out_file)
     
 def main_math():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/analyze_math_train_lce_round7_step_controled_negative.json"
+    in_file = "data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
+    out_file = "data/lce_solutions/different_ranked_negative_divided/processed_results/analyze_math_train_lce_round7_step_controled_negative.json"
     analyze_different_negative(in_file, out_file)
 
 def main_gsm8k_tmp1():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/analyze_gsm8k_train_lce_round53_step_controled_negative.json"
+    in_file = "data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
+    out_file = "data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/analyze_gsm8k_train_lce_round53_step_controled_negative.json"
     analyze_different_negative(in_file, out_file)
     
 def main_math_tmp1():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/analyze_math_train_lce_round7_step_controled_negative.json"
+    in_file = "data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
+    out_file = "data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/analyze_math_train_lce_round7_step_controled_negative.json"
     analyze_different_negative(in_file, out_file)
     
 def main_gsm8k_ascend():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/analyze_gsm8k_train_lce_round53_step_controled_negative.json"
+    in_file = "data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
+    out_file = "data/lce_solutions/ascending_temperature_negative/processed_results/analyze_gsm8k_train_lce_round53_step_controled_negative.json"
     analyze_different_negative(in_file, out_file)
     
 def main_math_ascend():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/analyze_math_train_lce_round7_step_controled_negative.json"
+    in_file = "data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
+    out_file = "data/lce_solutions/ascending_temperature_negative/processed_results/analyze_math_train_lce_round7_step_controled_negative.json"
     analyze_different_negative(in_file, out_file)
     
 if __name__ == "__main__":

@@ -246,8 +246,8 @@ if __name__ == '__main__':
 
     # GSM8K200 APE500 gaokao-mathcloze gaokao-mathqa TAL500 CMMLU AGI
     for name in ["GSM8K", "APE_0", "APE_1", "SVAMP", "simuleq", "mathematics"]:
-        input_path = f'/mnt/cache/luzimu/open_source_repositories/Step-Controlled_DPO/alignment-handbook/src/inference/all_test/{name}_test.jsonl'
-        output_path = f'/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}/{name}/{name}_test_result.jsonl'
+        input_path = f'alignment-handbook/src/inference/all_test/{name}_test.jsonl'
+        output_path = f'alignment-handbook/results/inference/{dir}/{name}/{name}_test_result.jsonl'
 
         # output_path = f'/mnt/cache/wangke/code_generation/outs/debug/{name}/{name}_test_result.jsonl'
         if not os.path.exists("/".join(output_path.split("/")[:-1])):

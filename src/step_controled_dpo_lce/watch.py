@@ -24,7 +24,7 @@ def get_args():
 
 def watch(args):
     count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1"
+    dir = "data/lce_solutions/different_ranked_negative_divided_tmp1"
     while True:
         for i in range(3):
             file_paths = glob(f"{dir}/{args.d}/{i}_round*.jsonl")

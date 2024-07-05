@@ -398,7 +398,7 @@ def compute_accuracy_ours(in_file, out_file, name):
     wrong_datas = []
     levels = {"Level 1": {"correct": 0, "wrong": 0}, "Level 2": {"correct": 0, "wrong": 0}, "Level 3": {"correct": 0, "wrong": 0}, "Level 4": {"correct": 0, "wrong": 0}, "Level 5": {"correct": 0, "wrong": 0}}
     subjects = {"algebra": {"correct": 0, "wrong": 0}, "counting_and_probability": {"correct": 0, "wrong": 0}, "geometry": {"correct": 0, "wrong": 0}, "intermediate_algebra": {"correct": 0, "wrong": 0}, "number_theory": {"correct": 0, "wrong": 0}, "prealgebra": {"correct": 0, "wrong": 0}, "precalculus": {"correct": 0, "wrong": 0}}
-    gt_datas = load_json(f"/mnt/cache/luzimu/open_source_repositories/Step-Controlled_DPO/alignment-handbook/src/inference/all_test/{name}_test.jsonl")
+    gt_datas = load_json(f"alignment-handbook/src/inference/all_test/{name}_test.jsonl")
     for idx, data in tqdm(enumerate(datas)):
         gt_answer = gt_datas[idx]["extra"]["answer"]
         model_answer = find_math_answer(data["debug_result"][-2]["content"])
@@ -483,42 +483,16 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
 
-    dir = f"Mistral-7B-v0.1-lce/sft/{args.ch}"
-    combine(f"/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}")
-    # compute_accuracy("/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_test_result.jsonl", "/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_results", "/mnt/cache/luzimu/gsm8k-rft-llama7b-u13b_evaluation/MATH_test_orig.jsonl")
-    # compute_accuracy_k12("/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/k12_test_result.jsonl", "/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/")
-    # "TAL500", "CMMLU", "AGI", "CEval"
-    # for name in ["GSM8K200", "APE500", "MATH500", "MATH"]:
-    for name in ["GSM8K", "MATH", "SVAMP", "simuleq", "mathematics", "asdiv", "mawps"]:
-        print(name + ":")
-        compute_accuracy_ours(f"/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}/{name}/{name}_test_result{args.i}.jsonl",
-        f"/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}/{name}/{name}_test_result.jsonl",
-        name)
-    # main()
-
-
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    with open(os.path.join(dir_path, "config.json"), "r") as f:
+        config = json.load(f)
     
-    #############
-    # voting
-    #############
-    # dirs = [
-    #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote0",
-    #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote1",
-    #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote2",
-    #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote3",
-    #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote4",
-    #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote5",
-    #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote6",
-    #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote7",
-    #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote8",
-    #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote9",
-    # ]
-    # k = 10
-    # # compute_accuracy("/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_test_result.jsonl", "/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_results", "/mnt/cache/luzimu/gsm8k-rft-llama7b-u13b_evaluation/MATH_test_orig.jsonl")
-    # # compute_accuracy_k12("/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/k12_test_result.jsonl", "/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/")
-    # for name in ["APE500", "GSM8K200"]:
-    #     print(name + ":")
-    #     in_files = [f"/mnt/cache/luzimu/code_generation-master/data/votings/{dir}/{name}/{name}_test_result.jsonl" for dir in dirs]
-    #     out_files = [f"/mnt/cache/luzimu/code_generation-master/data/votings/{dir}/{name}/{name}_test_result.jsonl" for dir in dirs]
-    #     for in_file, out_file in zip(in_files, out_files):
-    #         compute_accuracy_ours(in_file, out_file, 5000)
+    dir = f"{config['model_name']}/" + args.ch
+    combine(f"alignment-handbook/results/inference/{dir}")
+
+    for name in ["GSM8K", "MATH", "SVAMP", "simuleq", "mathematics"]:
+        print(name + ":")
+        compute_accuracy_ours(f"alignment-handbook/results/inference/{dir}/{name}/{name}_test_result{args.i}.jsonl",
+        f"alignment-handbook/results/inference/{dir}/{name}/{name}_test_result.jsonl",
+        name)
+

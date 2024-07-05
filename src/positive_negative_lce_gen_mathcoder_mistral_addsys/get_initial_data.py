@@ -93,25 +93,25 @@ def get_initial_data_milti_infiles(in_files, out_dir, n):
 
 def main_gsm8k():
     in_file = "/mnt/cache/luzimu/datasets_en/GSM8K/GSM8K_train.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/gsm8k"
+    out_dir = "data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/gsm8k"
     n = 7
     get_initial_data(in_file, out_dir, n)
 
 def main_math():
     in_file = "/mnt/cache/luzimu/datasets_en/MATH/MATH_train.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/math"
+    out_dir = "data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/math"
     n = 7
     get_initial_data(in_file, out_dir, n)
 
 def main_math_multi():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/math1/result_{i}.jsonl" for i in range(7)]
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/math"
+    in_files = [f"data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/math1/result_{i}.jsonl" for i in range(7)]
+    out_dir = "data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/math"
     n = 16
     get_initial_data_milti_infiles(in_files, out_dir, n)
     
 def main_gsm8k_multi():
-    in_files = [f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/gsm8k1/result_{i}.jsonl" for i in range(7)]
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/gsm8k"
+    in_files = [f"data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/gsm8k1/result_{i}.jsonl" for i in range(7)]
+    out_dir = "data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/gsm8k"
     n = 16
     get_initial_data_milti_infiles(in_files, out_dir, n)
     

@@ -246,8 +246,8 @@ if __name__ == '__main__':
     
     api = API(port="8001", ip=ip[args.i])
 
-    input_path = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_it2/count_gsm8k_train_lce_round{args.r - 1}.jsonl'
-    output_path = f'/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_it2/round{args.r}/gsm8k/gsm8k_train_{args.i}.jsonl'
+    input_path = f'data/lce_solutions/mistral_lce_alignment_sample_it2/count_gsm8k_train_lce_round{args.r - 1}.jsonl'
+    output_path = f'data/lce_solutions/mistral_lce_alignment_sample_it2/round{args.r}/gsm8k/gsm8k_train_{args.i}.jsonl'
 
     # output_path = f'/mnt/cache/wangke/code_generation/outs/debug/{name}/{name}_test_result.jsonl'
     if not os.path.exists("/".join(output_path.split("/")[:-1])):

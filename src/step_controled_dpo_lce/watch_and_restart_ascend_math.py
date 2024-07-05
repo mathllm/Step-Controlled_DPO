@@ -18,17 +18,17 @@ def load_jsonl(in_file):
 
 def restart_session(r, i):
     os.system(f"tmux kill-session -t m_{i}")
-    cmd = f"tmux new-session -d -s m_{i} 'python /mnt/cache/luzimu/rlhf_math/src/different_negative_gen/lce_solution_gen_different_negative_math_divided_ascend_loss.py {r} -i {i}'"
+    cmd = f"tmux new-session -d -s m_{i} 'python src/different_negative_gen/lce_solution_gen_different_negative_math_divided_ascend_loss.py {r} -i {i}'"
     os.system(cmd)
 
 def restart_loop(r, i):
     os.system(f"tmux kill-session -t loop{i}")
-    cmd = f"tmux new-session -d -s loop{i} 'bash /mnt/cache/luzimu/rlhf_math/src/different_negative_gen/scripts_ascend/math_{i}.sh {r}'"
+    cmd = f"tmux new-session -d -s loop{i} 'bash src/different_negative_gen/scripts_ascend/math_{i}.sh {r}'"
     os.system(cmd)
 
 def watch():
     count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative"
+    dir = "data/lce_solutions/ascending_temperature_negative"
     while True:
         for i in range(6):
             file_paths = glob(f"{dir}/math/{i}_round*.jsonl")

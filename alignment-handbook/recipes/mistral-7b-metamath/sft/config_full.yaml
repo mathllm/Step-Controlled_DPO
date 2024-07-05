@@ -8,7 +8,7 @@ use_flash_attention_2: true
 # Data training arguments
 chat_template: "{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ 'User:\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'system' %}\n{{ 'System:\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'assistant' %}\n{{ 'Assistant:\n'  + message['content'] + eos_token }}\n{% endif %}\n{% if loop.last and add_generation_prompt %}\n{{ 'Assistant:\n' }}\n{% endif %}\n{% endfor %}"
 dataset_mixer:
-  /mnt/cache/luzimu/rlhf_math/data/MetaMathQA_alignment: 1.0
+  data/MetaMathQA_alignment: 1.0
 dataset_splits:
 - train
 - test
@@ -35,7 +35,7 @@ max_seq_length: 2048
 max_steps: -1
 num_train_epochs: 3
 save_steps: 400
-output_dir: /mnt/cache/luzimu/rlhf_math/alignment-handbook/outs/Mistral-7B-v0.1-metamath
+output_dir: alignment-handbook/outs/Mistral-7B-v0.1-metamath
 overwrite_output_dir: true
 per_device_eval_batch_size: 4
 per_device_train_batch_size: 4

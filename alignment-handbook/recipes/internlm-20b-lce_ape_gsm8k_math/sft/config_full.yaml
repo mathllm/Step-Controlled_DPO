@@ -8,7 +8,7 @@ use_flash_attention_2: false
 # Data training arguments
 chat_template: "{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ '<|user|>' }}{% elif message['role'] == 'system' %}\n{{ '<|system|>' }}{% elif message['role'] == 'assistant' %}\n{{ '<|assistant|>' }}{% endif %}\n{% for block in message['content'] %}\n{% if block['type'] == 'text' %}\n{{ '<|text|>' }}{% elif block['type'] == 'code' %}\n{{ '<|code|>' }}{% elif block['type'] == 'execution' %}\n{{ '<|execution|>' }}{% endif %}\n{{ block['content'] + '<|endofblock|>' }}{% endfor %}\n{{ '<|endofmessage|>' }}{% endfor %}"
 dataset_mixer:
-  /mnt/cache/luzimu/rlhf_math/data/ape_th1_169161_gsm8k_math_81087_lce: 1.0
+  data/ape_th1_169161_gsm8k_math_81087_lce: 1.0
 dataset_splits:
 - train
 - test
@@ -34,7 +34,7 @@ lr_scheduler_type: cosine
 max_seq_length: 2048
 max_steps: -1
 num_train_epochs: 3
-output_dir: /mnt/cache/luzimu/rlhf_math/alignment-handbook/outs/internlm2-20b_ape_th1_169161_gsm8k_math_81087
+output_dir: alignment-handbook/outs/internlm2-20b_ape_th1_169161_gsm8k_math_81087
 overwrite_output_dir: true
 per_device_eval_batch_size: 4
 per_device_train_batch_size: 4
@@ -47,5 +47,5 @@ run_name: internlm2-20b_ape_th1_169161_gsm8k_math_81087
 save_strategy: "no"
 seed: 42
 warmup_ratio: 0.1
-deepspeed: /mnt/cache/luzimu/rlhf_math/config/deepspeed.json
+deepspeed: config/deepspeed.json
 trust_remote_code: true

@@ -316,31 +316,31 @@ def get_chosen_rejected_controled_steps_add_1x3_1x3(in_files, in_files_and_num, 
     save_jsonl(new_datas[split_idx:], out_train_file)
 
 def main_gsm8k():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
+    out_file = "data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
     in_files = []
     for i in range(3):
         for j in range(100):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/gsm8k/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/different_ranked_negative_divided/gsm8k/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
 
 def main_math():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
+    out_file = "data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
     in_files = []
     for i in range(3):
         for j in range(100):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/math/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/different_ranked_negative_divided/math/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
     
 def main_controled_steps():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo"
+    in_files = ["data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -350,9 +350,9 @@ def main_controled_steps():
     get_chosen_rejected_controled_steps(in_files, out_train_file, out_test_file)
     
 def main_controled_steps_only_later_steps():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_only_later_steps"
+    in_files = ["data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_only_later_steps"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -362,9 +362,9 @@ def main_controled_steps_only_later_steps():
     get_chosen_rejected_controled_steps_only_later_steps(in_files, out_train_file, out_test_file)
 
 def main_controled_steps_naive():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_naive"
+    in_files = ["data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_naive"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -375,9 +375,9 @@ def main_controled_steps_naive():
 
 
 def main_controled_steps_test_template():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_test_template"
+    in_files = ["data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_test_template"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -387,31 +387,31 @@ def main_controled_steps_test_template():
     get_chosen_rejected_controled_steps_test_template(in_files, out_train_file, out_test_file)
     
 def main_gsm8k_tmp1():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
+    out_file = "data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
     in_files = []
     for i in range(3):
         for j in range(100):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/gsm8k/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/different_ranked_negative_divided_tmp1/gsm8k/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
 
 def main_math_tmp1():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
+    out_file = "data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
     in_files = []
     for i in range(3):
         for j in range(100):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/math/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/different_ranked_negative_divided_tmp1/math/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
 
 def main_controled_steps_test_tmp1():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_tmp1"
+    in_files = ["data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_tmp1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -421,11 +421,11 @@ def main_controled_steps_test_tmp1():
     get_chosen_rejected_controled_steps(in_files, out_train_file, out_test_file)
 
 def main_controled_steps_test_tmp13_tmp1():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/math_train_lce_round7_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_tmp13_tmp1"
+    in_files = ["data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/different_ranked_negative_divided_tmp1/processed_results/math_train_lce_round7_step_controled_negative.jsonl",
+                "data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_tmp13_tmp1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -435,11 +435,11 @@ def main_controled_steps_test_tmp13_tmp1():
     get_chosen_rejected_controled_steps(in_files, out_train_file, out_test_file)
     
 def main_controled_steps_add_1x3_1x3():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 3),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 3)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_add_1x3_1x3"
+    in_files = ["data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
+    in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 3),
+                ("data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 3)]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_add_1x3_1x3"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -449,32 +449,32 @@ def main_controled_steps_add_1x3_1x3():
     get_chosen_rejected_controled_steps_add_1x3_1x3(in_files, in_files_and_num, out_train_file, out_test_file)
     
 def main_gsm8k_ascend():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative_1.jsonl"
+    initial_file = "data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
+    out_file = "data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative_1.jsonl"
     in_files = []
     for i in range(6):
         for j in range(100):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/gsm8k/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/ascending_temperature_negative/gsm8k/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
 
 def main_math_ascend():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
+    out_file = "data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
     in_files = []
     for i in range(6):
         for j in range(100):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/math/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/ascending_temperature_negative/math/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
     
 def main_controled_steps_ascend():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
+    in_files = ["data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
     neg_limit = 1000
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit}"
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit}"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -486,9 +486,9 @@ def main_controled_steps_ascend():
 def main_controled_steps_ascend_1():
     neg_limit_gsm8k = 2
     neg_limit_math = 3
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl", neg_limit_math)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}"
+    in_files = [("data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl", neg_limit_math)]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -500,11 +500,11 @@ def main_controled_steps_ascend_1():
 def main_controled_steps_ascend_add_dpo1x1():
     neg_limit_gsm8k = 2
     neg_limit_math = 3
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl", neg_limit_math)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1"
+    in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 1),
+                ("data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl", neg_limit_math)]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -517,11 +517,11 @@ def main_controled_steps_ascend_add_dpo1x1():
 def main_controled_steps_ascend_add_dpo1x1_1():
     neg_limit_gsm8k = 2
     neg_limit_math = 3
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative_1.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl", neg_limit_math)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1_1"
+    in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 1),
+                ("data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative_1.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl", neg_limit_math)]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1_1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -533,11 +533,11 @@ def main_controled_steps_ascend_add_dpo1x1_1():
 def main_controled_steps_ascend_add_dpo1x1_2():
     neg_limit_gsm8k = 2
     neg_limit_math = 3
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results_7500.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl", neg_limit_math)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1_2"
+    in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results_7500.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl", neg_limit_math)]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1_2"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -549,11 +549,11 @@ def main_controled_steps_ascend_add_dpo1x1_2():
 def main_controled_steps_ascend_add_dpo1x1_1x2():
     neg_limit_gsm8k = 2
     neg_limit_math = 3
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results_7500.jsonl", 1, 2)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl", neg_limit_math)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1_1x2"
+    in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results_7500.jsonl", 1, 2)]
+    in_files = [("data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl", neg_limit_math)]
+    out_dir = f"data/controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1_1x2"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -563,23 +563,23 @@ def main_controled_steps_ascend_add_dpo1x1_1x2():
     get_chosen_rejected_controled_steps_limited_add_dpo1x1(in_files, in_files_and_num, out_train_file, out_test_file)
     
 def main_gsm8k_no_ch_internlm():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl"
+    out_file = "data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl"
     in_files = []
     for i in range(18):
         for j in range(300):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/gsm8k/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/gsm8k/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
     
 def main_math_no_ch_internlm():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl"
+    out_file = "data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl"
     in_files = []
     for i in range(18):
         for j in range(300):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/math/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/math/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
@@ -587,11 +587,11 @@ def main_math_no_ch_internlm():
 def main_controled_steps_ascend_add_dpo1x1():
     neg_limit_gsm8k = 2
     neg_limit_math = 3
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1"
+    in_files_and_num = [("data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -601,34 +601,34 @@ def main_controled_steps_ascend_add_dpo1x1():
     get_chosen_rejected_controled_steps_limited_add_dpo1x1(in_files, in_files_and_num, out_train_file, out_test_file)
     
 def main_gsm8k_internlm():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl"
+    out_file = "data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl"
     in_files = []
     for i in range(18):
         for j in range(300):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/gsm8k/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/internlm_negative_positive_gen/sc_dpo/gsm8k/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
     
 def main_math_internlm():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl"
+    out_file = "data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl"
     in_files = []
     for i in range(18):
         for j in range(300):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/math/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/internlm_negative_positive_gen/sc_dpo/math/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
     
 def main_ape_internlm():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl"
+    out_file = "data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl"
     in_files = []
     for i in range(18):
         for j in range(300):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/ape/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/internlm_negative_positive_gen/sc_dpo/ape/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
@@ -637,13 +637,13 @@ def main_gsm8k_math_ape_lim2_3_controled_steps_ascend_add_dpo1x1_1x4_1x1():
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 2
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -656,13 +656,13 @@ def main_gsm8k_math_ape_lim2_3_2_controled_steps_ascend_add_dpo1x1_1x4_1x1():
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 2
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -674,12 +674,12 @@ def main_gsm8k_math_ape_lim2_3_2_controled_steps_ascend_add_dpo1x1_1x4_1x1():
 def main_gsm8k_math_ape_lim2_3_controled_steps_ascend_add_dpo1x1_1x4_1x1():
     neg_limit_gsm8k = 2
     neg_limit_math = 3
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -692,13 +692,13 @@ def main_gsm8k_math_ape_lim2_3_1half_controled_steps_ascend_add_dpo1x1_1x4_1x1()
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 1
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -711,13 +711,13 @@ def main_gsm8k_math_ape_lim2_3_1threequarter_controled_steps_ascend_add_dpo1x1_1
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 1
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}threequarter"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}threequarter"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -730,13 +730,13 @@ def main_gsm8k_math_ape_lim2_3_1quarter_controled_steps_ascend_add_dpo1x1_1x4_1x
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 1
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}quarter"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}quarter"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -746,12 +746,12 @@ def main_gsm8k_math_ape_lim2_3_1quarter_controled_steps_ascend_add_dpo1x1_1x4_1x
     get_chosen_rejected_controled_steps_limited_add_dpo1x1(in_files, in_files_and_num, out_train_file, out_test_file, weights=(1, 1, 0.25), weights_sc=(1, 1, 0.25))
     
 def main_math_internlm_1():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl"
+    initial_file = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl"
+    out_file = "data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl"
     in_files = []
     for i in range(18):
         for j in range(300):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/math/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/internlm_negative_positive_gen/sc_dpo/math/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
@@ -760,13 +760,13 @@ def main_gsm8k_math_ape_lim2_3_1half_controled_steps_ascend_add_dpo1x1_1x4_1x1_1
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 1
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half_1"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half_1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -779,13 +779,13 @@ def main_gsm8k_math_ape_lim2_3_1quarter_controled_steps_ascend_add_dpo1x1_1x4_1x
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 1
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}quarter_1"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}quarter_1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -799,14 +799,14 @@ def main_gsm8k_math_ape_lim2_3_1half_3_controled_steps_ascend_add_dpo1x1_1x4_1x1
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 1
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half_mathlim{neg_limit_math}_1"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape),
+                ("data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half_mathlim{neg_limit_math}_1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -819,13 +819,13 @@ def main_gsm8k_math_ape_lim2_3_1quarter_controled_steps_ascend_add_dpo1x1_1x1_1x
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 1
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math1x1_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}quarter_1"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
+    out_dir = f"data/internlm_controled_steps_math1x1_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}quarter_1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -838,15 +838,15 @@ def main_gsm8k_math_ape_lim2_3_1half_math3_gsm8k2_controled_steps_ascend_add_dpo
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 1
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half_mathlim{neg_limit_math}_gsm8klim{neg_limit_gsm8k}_1"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape),
+                ("data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half_mathlim{neg_limit_math}_gsm8klim{neg_limit_gsm8k}_1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -859,13 +859,13 @@ def main_gsm8k_math_ape_lim2_3_1half_controled_steps_ascend_add_dpo1x1_1x1_1x1_1
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 1
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math1x1_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half_1"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape)]
+    out_dir = f"data/internlm_controled_steps_math1x1_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half_1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -878,15 +878,15 @@ def main_gsm8k_math_ape_lim2_3_1half_math3_gsm8k2half_controled_steps_ascend_add
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 1
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half_mathlim{neg_limit_math}_gsm8klim{neg_limit_gsm8k}half_1"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape),
+                ("data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}half_mathlim{neg_limit_math}_gsm8klim{neg_limit_gsm8k}half_1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -899,15 +899,15 @@ def main_gsm8k_math_ape_lim2_3_2_math3_gsm8k2_controled_steps_ascend_add_dpo1x1_
     neg_limit_gsm8k = 2
     neg_limit_math = 3
     neg_limit_ape = 2
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}_mathlim{neg_limit_math}_gsm8klim{neg_limit_gsm8k}_1"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+                ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative_1.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_negative_positive_gen/sc_dpo/processed_results/ape_step_controled_negative.jsonl", neg_limit_ape),
+                ("data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math),
+                ("data/lce_solutions/internlm_no_ch_negative_positive_gen/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k)]
+    out_dir = f"data/internlm_controled_steps_math_gsm8k_quarterape_lce_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_lim{neg_limit_ape}_mathlim{neg_limit_math}_gsm8klim{neg_limit_gsm8k}_1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -917,23 +917,23 @@ def main_gsm8k_math_ape_lim2_3_2_math3_gsm8k2_controled_steps_ascend_add_dpo1x1_
     get_chosen_rejected_controled_steps_limited_add_dpo1x1(in_files, in_files_and_num, out_train_file, out_test_file, weights=(1, 1, 0.25), weights_sc=(1, 1, 1, 1, 1))
 
 def main_math_mathcoder():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/processed_results/math_step_controled_negative_1.jsonl"
+    initial_file = "data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl"
+    out_file = "data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/processed_results/math_step_controled_negative_1.jsonl"
     in_files = []
     for i in range(16):
         for j in range(300):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/math/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/math/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
     
 def main_gsm8k_mathcoder():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/processed_results/gsm8k_step_controled_negative_1.jsonl"
+    initial_file = "data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl"
+    out_file = "data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/processed_results/gsm8k_step_controled_negative_1.jsonl"
     in_files = []
     for i in range(16):
         for j in range(300):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/gsm8k/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/gsm8k/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
@@ -941,11 +941,11 @@ def main_gsm8k_mathcoder():
 def main_controled_steps_ascend_add_dpo1x1():
     neg_limit_gsm8k = 1
     neg_limit_math = 3
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1)]
-    in_files = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/MathCoder_mistral_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1"
+    in_files_and_num = [("data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+                ("data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1)]
+    in_files = [("data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/processed_results/gsm8k_step_controled_negative.jsonl", neg_limit_gsm8k),
+                ("data/lce_solutions/mathcoder_mistral_dpo_addsys/sc_dpo/processed_results/math_step_controled_negative.jsonl", neg_limit_math)]
+    out_dir = f"data/MathCoder_mistral_dpo_ascend_lim{neg_limit_gsm8k}_lim{neg_limit_math}_add_dpo1x1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):

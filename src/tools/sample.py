@@ -63,14 +63,14 @@ def get_md(in_file, out_file):
         
     
 def main():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
-    out_file = "/mnt/cache/luzimu/rlhf_math/src/tools/sample/50_gsm8k_50_math.jsonl"
+    in_files = ["data/lce_solutions/ascending_temperature_negative/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/ascending_temperature_negative/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
+    out_file = "src/tools/sample/50_gsm8k_50_math.jsonl"
     sample(in_files, out_file)
     
 def main_md():
-    in_file = "/mnt/cache/luzimu/rlhf_math/src/tools/sample/50_gsm8k_50_math.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/src/tools/sample/50_gsm8k_50_math.md"
+    in_file = "src/tools/sample/50_gsm8k_50_math.jsonl"
+    out_file = "src/tools/sample/50_gsm8k_50_math.md"
     get_md(in_file, out_file)
     
 if __name__ == "__main__":

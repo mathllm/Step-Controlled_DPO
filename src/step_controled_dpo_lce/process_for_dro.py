@@ -138,31 +138,31 @@ def get_dro_answers(in_files, out_train_file, out_test_file):
 
 
 def main_gsm8k():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
+    out_file = "data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl"
     in_files = []
     for i in range(3):
         for j in range(100):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/gsm8k/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/different_ranked_negative_divided/gsm8k/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
 
 def main_math():
-    initial_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
+    initial_file = "data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
+    out_file = "data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"
     in_files = []
     for i in range(3):
         for j in range(100):
-            in_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/math/result_{i}_round{j}.jsonl"
+            in_file = f"data/lce_solutions/different_ranked_negative_divided/math/result_{i}_round{j}.jsonl"
             if os.path.isfile(in_file):
                 in_files.append(in_file)
     prepare_correct_incorrect_solutions(initial_file, in_files, out_file)
     
 def main_get_dro_answers():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dro"
+    in_files = ["data/lce_solutions/different_ranked_negative_divided/processed_results/gsm8k_train_lce_round53_step_controled_negative.jsonl",
+                "data/lce_solutions/different_ranked_negative_divided/processed_results/math_train_lce_round7_step_controled_negative.jsonl"]
+    out_dir = f"data/math_gsm8k_lce_dro"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):

@@ -86,29 +86,29 @@ def prepare_initial_data_divided(in_file, out_dir):
 
 
 def main_gsm8k():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/gsm8k"
+    in_file = "data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
+    out_dir = "data/lce_solutions/different_ranked_negative_divided/gsm8k"
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
     prepare_initial_data_divided(in_file, out_dir)
 
 def main_math():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided/math"
+    in_file = "data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
+    out_dir = "data/lce_solutions/different_ranked_negative_divided/math"
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
     prepare_initial_data_divided(in_file, out_dir)
 
 def main_gsm8k_ascend():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/gsm8k"
+    in_file = "data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl"
+    out_dir = "data/lce_solutions/ascending_temperature_negative/gsm8k"
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
     prepare_initial_data_divided(in_file, out_dir)
 
 def main_math_ascend():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
-    out_dir = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/ascending_temperature_negative/math"
+    in_file = "data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
+    out_dir = "data/lce_solutions/ascending_temperature_negative/math"
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
     prepare_initial_data_divided(in_file, out_dir)

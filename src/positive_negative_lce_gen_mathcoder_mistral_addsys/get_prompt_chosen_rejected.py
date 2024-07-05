@@ -211,30 +211,30 @@ def count_valid_num(in_file, correct_num, wrong_num):
     print(f"valid_num: {valid_num}")
 
 def main():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/negative_positive_sample/gsm8k_train_lce_round2.jsonl",
-    "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/negative_positive_sample/math_train_lce_round2.jsonl"]
-    out_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/chosen_rejected_data/gsm8k_math_chosen_rejected_iter1.jsonl"
+    in_files = ["data/lce_solutions/negative_positive_sample/gsm8k_train_lce_round2.jsonl",
+    "data/lce_solutions/negative_positive_sample/math_train_lce_round2.jsonl"]
+    out_file = "data/lce_solutions/chosen_rejected_data/gsm8k_math_chosen_rejected_iter1.jsonl"
     get_prompt_chosen_rejected(in_files, out_file)
     
 def main1():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_it2/gsm8k_train_lce_round80.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_it2/math_train_lce_round8.jsonl"]
-    out_train_file = "/mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dpo_it2/data/train/math_gsm8k_train.jsonl"
-    out_test_file = "/mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dpo_it2/data/test/math_gsm8k_test.jsonl"
+    in_files = ["data/lce_solutions/mistral_lce_alignment_sample_it2/gsm8k_train_lce_round80.jsonl",
+                "data/lce_solutions/mistral_lce_alignment_sample_it2/math_train_lce_round8.jsonl"]
+    out_train_file = "data/math_gsm8k_lce_dpo_it2/data/train/math_gsm8k_train.jsonl"
+    out_test_file = "data/math_gsm8k_lce_dpo_it2/data/test/math_gsm8k_test.jsonl"
     get_chosen_rejected_alignment_lce(in_files, out_train_file, out_test_file)
     
 def main_count():
-    in_file = "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
+    in_file = "data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"
     correct_num = 2
     wrong_num = 2
     count_valid_num(in_file, correct_num, wrong_num)
     
 def main_multi():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"]
+    in_files = ["data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl",
+                "data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl"]
     num_correct = 3
     num_wrong = 3
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dpo_multi_{num_correct}x{num_wrong}"
+    out_dir = f"data/math_gsm8k_lce_dpo_multi_{num_correct}x{num_wrong}"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -244,9 +244,9 @@ def main_multi():
     get_chosen_rejected_alignment_lce_multi(in_files, out_train_file, out_test_file, num_correct, num_wrong)
 
 def main_multi_file_diff():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 1),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 3, 3)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dpo_multi_1x1-3x3"
+    in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 1),
+                ("data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 3, 3)]
+    out_dir = f"data/math_gsm8k_lce_dpo_multi_1x1-3x3"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -256,9 +256,9 @@ def main_multi_file_diff():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file)
     
 def main_multi_file_diff_1x3_1x3():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 3),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 3)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dpo_multi_1x3-1x3"
+    in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 3),
+                ("data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 3)]
+    out_dir = f"data/math_gsm8k_lce_dpo_multi_1x3-1x3"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -268,9 +268,9 @@ def main_multi_file_diff_1x3_1x3():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file)
 
 def main_mixtral():
-    in_files = ["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mixtral_lce_alignment_sample/gsm8k_train_lce_round38.jsonl",
-                "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mixtral_lce_alignment_sample/math_train_lce_round12.jsonl"]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/mixtral_math_gsm8k_lce_dpo"
+    in_files = ["data/lce_solutions/mixtral_lce_alignment_sample/gsm8k_train_lce_round38.jsonl",
+                "data/lce_solutions/mixtral_lce_alignment_sample/math_train_lce_round12.jsonl"]
+    out_dir = f"data/mixtral_math_gsm8k_lce_dpo"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -280,9 +280,9 @@ def main_mixtral():
     get_chosen_rejected_alignment_lce(in_files, out_train_file, out_test_file)
     
 def main_mixtral_1x3_1x3():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mixtral_lce_alignment_sample/gsm8k_train_lce_round38.jsonl", 1, 3),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mixtral_lce_alignment_sample/math_train_lce_round12.jsonl", 1, 3)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/mixtral_math_gsm8k_lce_dpo_multi_1x3-1x3"
+    in_files_and_num = [("data/lce_solutions/mixtral_lce_alignment_sample/gsm8k_train_lce_round38.jsonl", 1, 3),
+                ("data/lce_solutions/mixtral_lce_alignment_sample/math_train_lce_round12.jsonl", 1, 3)]
+    out_dir = f"data/mixtral_math_gsm8k_lce_dpo_multi_1x3-1x3"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -292,11 +292,11 @@ def main_mixtral_1x3_1x3():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file)
 
 def main_mistral_mixtral_1x3_1x3():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mixtral_lce_alignment_sample/gsm8k_train_lce_round38.jsonl", 1, 3),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mixtral_lce_alignment_sample/math_train_lce_round12.jsonl", 1, 3),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 3),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 3),]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/mistral_mixtral_math_gsm8k_lce_dpo_multi_1x3-1x3"
+    in_files_and_num = [("data/lce_solutions/mixtral_lce_alignment_sample/gsm8k_train_lce_round38.jsonl", 1, 3),
+                ("data/lce_solutions/mixtral_lce_alignment_sample/math_train_lce_round12.jsonl", 1, 3),
+                ("data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 3),
+                ("data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 3),]
+    out_dir = f"data/mistral_mixtral_math_gsm8k_lce_dpo_multi_1x3-1x3"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -306,9 +306,9 @@ def main_mistral_mixtral_1x3_1x3():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file)
 
 def main_multi_file_diff_1x3_1x3_prefer_long():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 3),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 3)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dpo_multi_1x3-1x3_prefer_long"
+    in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample/gsm8k_train_lce_round53.jsonl", 1, 3),
+                ("data/lce_solutions/mistral_lce_alignment_sample/math_train_lce_round7.jsonl", 1, 3)]
+    out_dir = f"data/math_gsm8k_lce_dpo_multi_1x3-1x3_prefer_long"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -321,9 +321,9 @@ def main_ablation():
     for i in range(1, 5):
         for j in range(1, 5):
             print(f"{i}, {j}:")
-            in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results_7473.jsonl", i, j),
-                ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results_7500.jsonl", i, j)]
-            out_dir = f"/mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dpo_{i}x{j}-{i}x{j}"
+            in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results_7473.jsonl", i, j),
+                ("data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results_7500.jsonl", i, j)]
+            out_dir = f"data/math_gsm8k_lce_dpo_{i}x{j}-{i}x{j}"
             if not os.path.exists(f"{out_dir}/data/train/"):
                 os.makedirs(f"{out_dir}/data/train/")
             if not os.path.exists(f"{out_dir}/data/test/"):
@@ -333,9 +333,9 @@ def main_ablation():
             get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file)
 
 def main_1x1_1x2():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results_7500.jsonl", 1, 2)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dpo_1x1-1x2"
+    in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results_7500.jsonl", 1, 2)]
+    out_dir = f"data/math_gsm8k_lce_dpo_1x1-1x2"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -346,9 +346,9 @@ def main_1x1_1x2():
 
 
 def main_1x2_1x3():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results_7473.jsonl", 1, 2),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results_7500.jsonl", 1, 3)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/math_gsm8k_lce_dpo_1x2-1x3"
+    in_files_and_num = [("data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/gsm8k_results_7473.jsonl", 1, 2),
+        ("data/lce_solutions/mistral_lce_alignment_sample_1/processed_results/math_results_7500.jsonl", 1, 3)]
+    out_dir = f"data/math_gsm8k_lce_dpo_1x2-1x3"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -358,10 +358,10 @@ def main_1x2_1x3():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file)
 
 def main_internlm_1x1_1x4_1x1():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1),]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_gsm8k_math_ape_1x1_1x4_1x1"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+        ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1),]
+    out_dir = f"data/internlm_gsm8k_math_ape_1x1_1x4_1x1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -371,9 +371,9 @@ def main_internlm_1x1_1x4_1x1():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file)
     
 def main_internlm_1x1_1x4():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_gsm8k_math_1x1_1x4"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4)]
+    out_dir = f"data/internlm_gsm8k_math_1x1_1x4"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -383,9 +383,9 @@ def main_internlm_1x1_1x4():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file)
 
 def main_internlm_1x1_1x4_no_ch():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_gsm8k_math_no_ch_1x1_1x4"
+    in_files_and_num = [("data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4)]
+    out_dir = f"data/internlm_gsm8k_math_no_ch_1x1_1x4"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -395,9 +395,9 @@ def main_internlm_1x1_1x4_no_ch():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file)
 
 def main_internlm_1x1_1x3_no_ch():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 3)]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_gsm8k_math_no_ch_1x1_1x3"
+    in_files_and_num = [("data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 3)]
+    out_dir = f"data/internlm_gsm8k_math_no_ch_1x1_1x3"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -407,10 +407,10 @@ def main_internlm_1x1_1x3_no_ch():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file)
     
 def main_internlm_1x1_1x4_1x1_quarterape():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1),]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_gsm8k_math_ape_1x1_1x4_1x1_quarterape"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+        ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1),]
+    out_dir = f"data/internlm_gsm8k_math_ape_1x1_1x4_1x1_quarterape"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -420,10 +420,10 @@ def main_internlm_1x1_1x4_1x1_quarterape():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file, (1, 1, 0.25))
     
 def main_internlm_1x1_1x4_1x1_halfape():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1),]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_gsm8k_math_ape_1x1_1x4_1x1_halfape"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 4),
+        ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1),]
+    out_dir = f"data/internlm_gsm8k_math_ape_1x1_1x4_1x1_halfape"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -433,10 +433,10 @@ def main_internlm_1x1_1x4_1x1_halfape():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file, (1, 1, 0.5))
     
 def main_internlm_1x1_1x1_1x1_quarterape():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1),]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_gsm8k_math_ape_1x1_1x1_1x1_quarterape"
+    in_files_and_num = [("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),
+        ("data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl", 1, 1),]
+    out_dir = f"data/internlm_gsm8k_math_ape_1x1_1x1_1x1_quarterape"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -446,12 +446,12 @@ def main_internlm_1x1_1x1_1x1_quarterape():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file, (1, 1, 0.25))
     
 def main_internlm_1x2_1x7_1x1_quarterape():
-    in_files_and_num = [(["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl",
-                          "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl"], 1, 2),
-        (["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl",
-          "/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl"], 1, 7),
-        (["/mnt/cache/luzimu/rlhf_math/data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl"], 1, 1),]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/internlm_gsm8k_math_ape_1x2_1x7_1x1_0.35ape"
+    in_files_and_num = [(["data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl",
+                          "data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/gsm8k_results_7473.jsonl"], 1, 2),
+        (["data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl",
+          "data/lce_solutions/internlm_no_ch_negative_positive_gen/naive_dpo/processed_results/math_results_7500.jsonl"], 1, 7),
+        (["data/lce_solutions/internlm_negative_positive_gen/naive_dpo/processed_results/ape_results_200488.jsonl"], 1, 1),]
+    out_dir = f"data/internlm_gsm8k_math_ape_1x2_1x7_1x1_0.35ape"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -461,9 +461,9 @@ def main_internlm_1x2_1x7_1x1_quarterape():
     get_chosen_rejected_alignment_lce_multi_file_diff_add_neg_from_other(in_files_and_num, out_train_file, out_test_file, (1, 1, 0.35))
 
 def main_mathcoder_1x1_1x1():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/mathcoder_gsm8k_math_ape_1x1_1x1"
+    in_files_and_num = [("data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),]
+    out_dir = f"data/mathcoder_gsm8k_math_ape_1x1_1x1"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -473,9 +473,9 @@ def main_mathcoder_1x1_1x1():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file, (1, 1))
 
 def main_mathcoder_1x1_1x1_addsys_old_data():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/mathcoder_gsm8k_math_ape_1x1_1x1_addsys_old_data"
+    in_files_and_num = [("data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),]
+    out_dir = f"data/mathcoder_gsm8k_math_ape_1x1_1x1_addsys_old_data"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -485,9 +485,9 @@ def main_mathcoder_1x1_1x1_addsys_old_data():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file, (1, 1))
     
 def main_mathcoder_1x1_1x1_addsys():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/mathcoder_mistral_gsm8k_math_ape_1x1_1x1_addsys"
+    in_files_and_num = [("data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 1),
+        ("data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl", 1, 1),]
+    out_dir = f"data/mathcoder_mistral_gsm8k_math_ape_1x1_1x1_addsys"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):
@@ -497,9 +497,9 @@ def main_mathcoder_1x1_1x1_addsys():
     get_chosen_rejected_alignment_lce_multi_file_diff(in_files_and_num, out_train_file, out_test_file, (1, 1))
 
 def main_mathcoder_1x2_1x3_addsys():
-    in_files_and_num = [("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 2),
-        ("/mnt/cache/luzimu/rlhf_math/data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl", 1, 3),]
-    out_dir = f"/mnt/cache/luzimu/rlhf_math/data/mathcoder_mistral_gsm8k_math_ape_1x2_1x3_addsys"
+    in_files_and_num = [("data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/gsm8k_results_7473.jsonl", 1, 2),
+        ("data/lce_solutions/mathcoder_mistral_dpo_addsys/naive_dpo/processed_results/math_results_7500.jsonl", 1, 3),]
+    out_dir = f"data/mathcoder_mistral_gsm8k_math_ape_1x2_1x3_addsys"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
     if not os.path.exists(f"{out_dir}/data/test/"):

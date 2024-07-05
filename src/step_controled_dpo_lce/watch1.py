@@ -26,12 +26,12 @@ def watch(args):
     count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     while True:
         for i in range(3):
-            file_path = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/{args.d}/{i}_round{args.r}.jsonl"
+            file_path = f"data/lce_solutions/different_ranked_negative_divided_tmp1/{args.d}/{i}_round{args.r}.jsonl"
             if not os.path.exists(file_path):
                 length = 0
             else:
                 length = len(load_jsonl(file_path))
-            source_file = f"/mnt/cache/luzimu/rlhf_math/data/lce_solutions/different_ranked_negative_divided_tmp1/{args.d}/to_be_run_{i}_round{args.r}.jsonl"
+            source_file = f"data/lce_solutions/different_ranked_negative_divided_tmp1/{args.d}/to_be_run_{i}_round{args.r}.jsonl"
             total_length = len(load_jsonl(source_file))
             if length == count[i]:
                 print(f"{i} no change: {length} ({total_length-length})")

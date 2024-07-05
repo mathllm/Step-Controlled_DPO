@@ -398,7 +398,7 @@ def compute_accuracy_ours(in_file, out_file, name):
     wrong_datas = []
     levels = {"Level 1": {"correct": 0, "wrong": 0}, "Level 2": {"correct": 0, "wrong": 0}, "Level 3": {"correct": 0, "wrong": 0}, "Level 4": {"correct": 0, "wrong": 0}, "Level 5": {"correct": 0, "wrong": 0}}
     subjects = {"algebra": {"correct": 0, "wrong": 0}, "counting_and_probability": {"correct": 0, "wrong": 0}, "geometry": {"correct": 0, "wrong": 0}, "intermediate_algebra": {"correct": 0, "wrong": 0}, "number_theory": {"correct": 0, "wrong": 0}, "prealgebra": {"correct": 0, "wrong": 0}, "precalculus": {"correct": 0, "wrong": 0}}
-    gt_datas = load_json(f"/mnt/cache/luzimu/open_source_repositories/Step-Controlled_DPO/alignment-handbook/src/inference/all_test/{name}_test.jsonl")
+    gt_datas = load_json(f"alignment-handbook/src/inference/all_test/{name}_test.jsonl")
     for idx, data in tqdm(enumerate(datas)):
         gt_answer = gt_datas[idx]["extra"]["answer"]
         model_answer = find_math_answer(data["debug_result"][-2]["content"])
@@ -488,11 +488,11 @@ if __name__ == "__main__":
         config = json.load(f)
     
     dir = f"{config['model_name']}/" + args.ch
-    combine(f"/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}")
+    combine(f"alignment-handbook/results/inference/{dir}")
 
     for name in ["GSM8K", "MATH", "SVAMP", "simuleq", "mathematics"]:
         print(name + ":")
-        compute_accuracy_ours(f"/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}/{name}/{name}_test_result{args.i}.jsonl",
-        f"/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}/{name}/{name}_test_result.jsonl",
+        compute_accuracy_ours(f"alignment-handbook/results/inference/{dir}/{name}/{name}_test_result{args.i}.jsonl",
+        f"alignment-handbook/results/inference/{dir}/{name}/{name}_test_result.jsonl",
         name)
 

@@ -483,16 +483,16 @@ if __name__ == "__main__":
 
 
     dir = f"internlm2-20b_ape_th1_169161_gsm8k_math_81087/sft/{args.ch}"
-    combine(f"/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}", "MATH")
-    combine(f"/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}", "APE")
+    combine(f"alignment-handbook/results/inference/{dir}", "MATH")
+    combine(f"alignment-handbook/results/inference/{dir}", "APE")
     # compute_accuracy("/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_test_result.jsonl", "/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_results", "/mnt/cache/luzimu/gsm8k-rft-llama7b-u13b_evaluation/MATH_test_orig.jsonl")
     # compute_accuracy_k12("/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/k12_test_result.jsonl", "/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/")
     # "TAL500", "CMMLU", "AGI", "CEval"
     # for name in ["GSM8K200", "APE500", "MATH500", "MATH"]:
     for name in ["GSM8K", "MATH", "SVAMP", "simuleq", "mathematics", "APE", "cmath", "mgsm_zh"]:
         print(name + ":")
-        compute_accuracy_ours(f"/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}/{name}/{name}_test_result{args.i}.jsonl",
-        f"/mnt/cache/luzimu/rlhf_math/alignment-handbook/results/inference/{dir}/{name}/{name}_test_result.jsonl",
+        compute_accuracy_ours(f"alignment-handbook/results/inference/{dir}/{name}/{name}_test_result{args.i}.jsonl",
+        f"alignment-handbook/results/inference/{dir}/{name}/{name}_test_result.jsonl",
         name)
     # main()
 
