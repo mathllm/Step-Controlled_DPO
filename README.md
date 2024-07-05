@@ -12,7 +12,15 @@ The paper is at `paper/SCDPO.pdf`.
 
 | Model | Checkpoint | GSM8k | MATH  |
 | ----- |------| ---- |-------|
-| MetaMath-70B-V1.0 | 🤗 <a href="https://huggingface.co/MathGenie/InternLM2-SFT-SCDPO" target="_blank">HF Link</a>| **88.5**  |  **58.1**	|
+| MathGenie/InternLM2-SFT-SCDPO | 🤗 <a href="https://huggingface.co/MathGenie/InternLM2-SFT-SCDPO" target="_blank">HF Link</a>| **88.5**  |  **58.1**	|
+| MathGenie/Mistral-7B-Ours-SFT | 🤗 <a href="https://huggingface.co/MathGenie/Mistral-7B-Ours-SFT" target="_blank">HF Link</a>| **76.8**  |  **43.2**	|
+| MathGenie/Mistral-7B-Ours-SFT-SCDPO | 🤗 <a href="https://huggingface.co/MathGenie/Mistral-7B-Ours-SFT-SCDPO" target="_blank">HF Link</a>| **80.1**  |  **47.7**	|
+
+### Datasets
+
+| Dataset | Link |
+| ----- |------|
+| MathGenie/SCDPO-Data-Mistral-Ours | 🤗 <a href="https://huggingface.co/datasets/MathGenie/SCDPO-Data-Mistral-Ours" target="_blank">HF Link</a>| 
 
 ### DPO and SCDPO Data Generation
 
