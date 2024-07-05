@@ -6,7 +6,7 @@ torch_dtype: bfloat16
 # For definitions, see: src/h4/training/config.py
 chat_template: "{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ message['content'] }}{% elif message['role'] == 'system' %}\n{{ '' }}{% elif message['role'] == 'assistant' %}\n{{ message['content'] }}{% endif %}{% endfor %}"
 dataset_mixer:
-  /mnt/cache/luzimu/MetaMath/data/gsm8k_math_dpo_1x1: 1.0
+  MetaMath/data/gsm8k_math_dpo_1x1: 1.0
 dataset_splits:
 - train
 - test

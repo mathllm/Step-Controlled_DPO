@@ -89,19 +89,19 @@ def get_initial_data_milti_infiles(in_files, out_dir, n):
 
 
 def main_gsm8k():
-    in_file = "/mnt/cache/luzimu/datasets_en/GSM8K/GSM8K_train.jsonl"
+    in_file = "datasets_en/GSM8K/GSM8K_train.jsonl"
     out_dir = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/gsm8k"
     n = 6
     get_initial_data(in_file, out_dir, n)
 
 def main_math():
-    in_file = "/mnt/cache/luzimu/datasets_en/MATH/MATH_train.jsonl"
+    in_file = "datasets_en/MATH/MATH_train.jsonl"
     out_dir = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/math"
     n = 6
     get_initial_data(in_file, out_dir, n)
 
 def main_ape():
-    in_file = "/mnt/cache/luzimu/datasets_ch/ape210k/outs/processed/train.jsonl"
+    in_file = "datasets_ch/ape210k/outs/processed/train.jsonl"
     out_dir = "data/lce_solutions/internlm_negative_positive_gen/naive_dpo/ape"
     n = 6
     get_initial_data(in_file, out_dir, n)

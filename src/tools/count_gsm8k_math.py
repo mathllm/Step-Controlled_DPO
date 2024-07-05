@@ -16,10 +16,10 @@ def load_jsonl(in_file):
     return datas
 
 def main():
-    in_file = "/mnt/cache/luzimu/code_generation-master/data/train/back_translation/train_solver/with_sys_gsm8k_math_81087.jsonl"
+    in_file = "code_generation-master/data/train/back_translation/train_solver/with_sys_gsm8k_math_81087.jsonl"
     datas = load_jsonl(in_file)
     gsm8k_file = ""
-    gsm8k_datas = load_jsonl("/mnt/cache/luzimu/datasets_en/GSM8K/GSM8K_train.jsonl")
+    gsm8k_datas = load_jsonl("datasets_en/GSM8K/GSM8K_train.jsonl")
     gsm8k_questions = [e["question"] for e in gsm8k_datas]
     gsm8k_num = 0
     for data in tqdm(datas):
@@ -32,10 +32,10 @@ def main():
     print(f"total: {total_num}")
     
 def main():
-    in_file = "/mnt/cache/luzimu/code_generation-master/data/train/back_translation/train_solver/with_sys_gsm8k_math_81087.jsonl"
+    in_file = "code_generation-master/data/train/back_translation/train_solver/with_sys_gsm8k_math_81087.jsonl"
     datas = load_jsonl(in_file)
     gsm8k_file = ""
-    gsm8k_datas = load_jsonl("/mnt/cache/luzimu/datasets_en/GSM8K/GSM8K_train.jsonl")
+    gsm8k_datas = load_jsonl("datasets_en/GSM8K/GSM8K_train.jsonl")
     gsm8k_questions = [e["question"] for e in gsm8k_datas]
     gsm8k_num = 0
     for data in tqdm(datas):
@@ -51,8 +51,8 @@ def main1():
     in_file = "data/internlm_gsm8k_math_no_ch_1x1_1x3/data/train/math_gsm8k_train.jsonl"
     datas = load_jsonl(in_file)
     gsm8k_file = ""
-    gsm8k_datas = load_jsonl("/mnt/cache/luzimu/datasets_en/GSM8K/GSM8K_train.jsonl")
-    math_datas = load_jsonl("/mnt/cache/luzimu/datasets_en/MATH/MATH_train.jsonl")
+    gsm8k_datas = load_jsonl("datasets_en/GSM8K/GSM8K_train.jsonl")
+    math_datas = load_jsonl("datasets_en/MATH/MATH_train.jsonl")
     gsm8k_questions = [e["question"] for e in gsm8k_datas]
     math_questions = [e["question"] for e in math_datas]
     gsm8k_num = 0

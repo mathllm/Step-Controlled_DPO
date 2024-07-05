@@ -1,7 +1,7 @@
 # Model arguments
-model_name_or_path: /mnt/cache/sharemath/models/internlm/internlm2-20b
+model_name_or_path: models/internlm/internlm2-20b
 model_revision: main
-tokenizer_name_or_path: /mnt/cache/sharemath/models/internlm/internlm2-20b
+tokenizer_name_or_path: models/internlm/internlm2-20b
 torch_dtype: bfloat16
 use_flash_attention_2: false
 

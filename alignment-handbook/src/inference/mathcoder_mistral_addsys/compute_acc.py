@@ -472,8 +472,8 @@ def combine(in_dir):
     save_jsonl(datas, os.path.join(in_dir, f"MATH/MATH_test_result.jsonl"))
         
 def main():
-    compute_accuracy_ours("/mnt/cache/luzimu/code_generation-master/data/inference/Llama-2-70b_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_284468-2023-12-31-11:56/ch1600/vote0/simuleq/simuleq_test_result.jsonl",
-    "/mnt/cache/luzimu/code_generation-master/data/inference/Llama-2-70b_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_284468-2023-12-31-11:56/ch1600/vote0/simuleq/simuleq_test_result.jsonl",
+    compute_accuracy_ours("code_generation-master/data/inference/Llama-2-70b_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_284468-2023-12-31-11:56/ch1600/vote0/simuleq/simuleq_test_result.jsonl",
+    "code_generation-master/data/inference/Llama-2-70b_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_284468-2023-12-31-11:56/ch1600/vote0/simuleq/simuleq_test_result.jsonl",
     "simuleq")
 
 if __name__ == "__main__":

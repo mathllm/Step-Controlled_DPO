@@ -13,7 +13,7 @@ unset __conda_setup
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 conda activate .env/handbookenv
-cd /mnt/cache/luzimu/rlhf_math
+cd rlhf_math
 
 export NCCL_DEBUG=WARN
 export NCCL_SOCKET_IFNAME=eth0

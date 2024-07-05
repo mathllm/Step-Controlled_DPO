@@ -10,8 +10,8 @@ else
 fi
 unset __conda_setup
 
-conda activate /mnt/cache/luzimu/mathllm-finetune/.env/handbookenv
-cd /mnt/cache/luzimu/mathllm-finetune
+conda activate mathllm-finetune/.env/handbookenv
+cd mathllm-finetune
 
 export NCCL_DEBUG=WARN
 export NCCL_SOCKET_IFNAME=eth0
@@ -24,4 +24,4 @@ wandb login ""
 
 CONFIG=${1}
 
-ACCELERATE_LOG_LEVEL=info accelerate launch --config_file /mnt/cache/luzimu/open_source_repositories/rlhf_math/alignment-handbook/recipes/accelerate_configs/deepspeed_zero3_4gpu.yaml /mnt/cache/luzimu/open_source_repositories/rlhf_math/alignment-handbook/scripts/run_dpo.py ${CONFIG}
+ACCELERATE_LOG_LEVEL=info accelerate launch --config_file open_source_repositories/rlhf_math/alignment-handbook/recipes/accelerate_configs/deepspeed_zero3_4gpu.yaml open_source_repositories/rlhf_math/alignment-handbook/scripts/run_dpo.py ${CONFIG}

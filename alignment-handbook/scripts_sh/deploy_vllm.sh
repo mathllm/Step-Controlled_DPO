@@ -10,7 +10,7 @@ else
 fi
 unset __conda_setup
 
-conda activate /mnt/cache/sharemath/finetune_mixtral/.env/vllmenv
+conda activate finetune_mixtral/.env/vllmenv
 
 export NCCL_DEBUG=WARN
 export NCCL_SOCKET_IFNAME=eth0

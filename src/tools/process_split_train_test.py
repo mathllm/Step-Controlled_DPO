@@ -31,7 +31,7 @@ def process_to_alignment(in_files, out_file_train, out_file_test):
     save_jsonl(new_datas[test_train_split:], out_file_train)
 
 def main():
-    in_files = ["/mnt/cache/luzimu/code_generation-master/data/train/back_translation/train_mixed/apegpt4only_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_442725.jsonl"]
+    in_files = ["code_generation-master/data/train/back_translation/train_mixed/apegpt4only_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_442725.jsonl"]
     out_dir = f"data/ape_math_gsm8k_lce"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
@@ -42,7 +42,7 @@ def main():
     process_to_alignment(in_files, out_train_file, out_test_file)
 
 def main1():
-    in_files = ["/mnt/cache/luzimu/code_generation-master/data/train/back_translation/train_mixed/ape_122382_gsm8k_math_81087_203479.jsonl"]
+    in_files = ["code_generation-master/data/train/back_translation/train_mixed/ape_122382_gsm8k_math_81087_203479.jsonl"]
     out_dir = f"data/ape_122382_gsm8k_math_81087_lce"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
@@ -53,7 +53,7 @@ def main1():
     process_to_alignment(in_files, out_train_file, out_test_file)
 
 def main_ape_th2():
-    in_files = ["/mnt/cache/luzimu/code_generation-master/data/train/back_translation/train_mixed/ape_th2_326221_gsm8k_math_81087_407308.jsonl"]
+    in_files = ["code_generation-master/data/train/back_translation/train_mixed/ape_th2_326221_gsm8k_math_81087_407308.jsonl"]
     out_dir = f"data/ape_th2_326221_gsm8k_math_81087_lce"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")
@@ -64,7 +64,7 @@ def main_ape_th2():
     process_to_alignment(in_files, out_train_file, out_test_file)
 
 def main_ape_th1():
-    in_files = ["/mnt/cache/luzimu/code_generation-master/data/train/back_translation/train_mixed/ape_th1_169161_gsm8k_math_81087_250248.jsonl"]
+    in_files = ["code_generation-master/data/train/back_translation/train_mixed/ape_th1_169161_gsm8k_math_81087_250248.jsonl"]
     out_dir = f"data/ape_th1_169161_gsm8k_math_81087_lce"
     if not os.path.exists(f"{out_dir}/data/train/"):
         os.makedirs(f"{out_dir}/data/train/")

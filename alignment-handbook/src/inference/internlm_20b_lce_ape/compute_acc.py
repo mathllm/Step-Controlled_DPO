@@ -471,8 +471,8 @@ def combine(in_dir, name="MATH"):
     save_jsonl(datas, os.path.join(in_dir, f"{name}/{name}_test_result.jsonl"))
         
 def main():
-    compute_accuracy_ours("/mnt/cache/luzimu/code_generation-master/data/inference/Llama-2-70b_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_284468-2023-12-31-11:56/ch1600/vote0/simuleq/simuleq_test_result.jsonl",
-    "/mnt/cache/luzimu/code_generation-master/data/inference/Llama-2-70b_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_284468-2023-12-31-11:56/ch1600/vote0/simuleq/simuleq_test_result.jsonl",
+    compute_accuracy_ours("code_generation-master/data/inference/Llama-2-70b_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_284468-2023-12-31-11:56/ch1600/vote0/simuleq/simuleq_test_result.jsonl",
+    "code_generation-master/data/inference/Llama-2-70b_filtered_AugGSM8K_AugMATH_ch1200_ch1600_gsm8kMath_verify_284468-2023-12-31-11:56/ch1600/vote0/simuleq/simuleq_test_result.jsonl",
     "simuleq")
 
 if __name__ == "__main__":
@@ -485,8 +485,8 @@ if __name__ == "__main__":
     dir = f"internlm2-20b_ape_th1_169161_gsm8k_math_81087/sft/{args.ch}"
     combine(f"alignment-handbook/results/inference/{dir}", "MATH")
     combine(f"alignment-handbook/results/inference/{dir}", "APE")
-    # compute_accuracy("/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_test_result.jsonl", "/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_results", "/mnt/cache/luzimu/gsm8k-rft-llama7b-u13b_evaluation/MATH_test_orig.jsonl")
-    # compute_accuracy_k12("/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/k12_test_result.jsonl", "/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/")
+    # compute_accuracy("code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_test_result.jsonl", "code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_results", "gsm8k-rft-llama7b-u13b_evaluation/MATH_test_orig.jsonl")
+    # compute_accuracy_k12("code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/k12_test_result.jsonl", "code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/")
     # "TAL500", "CMMLU", "AGI", "CEval"
     # for name in ["GSM8K200", "APE500", "MATH500", "MATH"]:
     for name in ["GSM8K", "MATH", "SVAMP", "simuleq", "mathematics", "APE", "cmath", "mgsm_zh"]:
@@ -514,11 +514,11 @@ if __name__ == "__main__":
     #     "Llama2-70b-ape-gsm8k-made-705673-2023-09-25-08:31/vote9",
     # ]
     # k = 10
-    # # compute_accuracy("/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_test_result.jsonl", "/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_results", "/mnt/cache/luzimu/gsm8k-rft-llama7b-u13b_evaluation/MATH_test_orig.jsonl")
-    # # compute_accuracy_k12("/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/k12_test_result.jsonl", "/mnt/cache/luzimu/code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/")
+    # # compute_accuracy("code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_test_result.jsonl", "code_generation-master/outs/Llama-2-7b-hf-math-2023-08-27-09:58/MATH_results", "gsm8k-rft-llama7b-u13b_evaluation/MATH_test_orig.jsonl")
+    # # compute_accuracy_k12("code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/k12_test_result.jsonl", "code_generation-master/outs/Llama-2-7b-hf-k12-2023-08-28-17:38/4200_test/")
     # for name in ["APE500", "GSM8K200"]:
     #     print(name + ":")
-    #     in_files = [f"/mnt/cache/luzimu/code_generation-master/data/votings/{dir}/{name}/{name}_test_result.jsonl" for dir in dirs]
-    #     out_files = [f"/mnt/cache/luzimu/code_generation-master/data/votings/{dir}/{name}/{name}_test_result.jsonl" for dir in dirs]
+    #     in_files = [f"code_generation-master/data/votings/{dir}/{name}/{name}_test_result.jsonl" for dir in dirs]
+    #     out_files = [f"code_generation-master/data/votings/{dir}/{name}/{name}_test_result.jsonl" for dir in dirs]
     #     for in_file, out_file in zip(in_files, out_files):
     #         compute_accuracy_ours(in_file, out_file, 5000)

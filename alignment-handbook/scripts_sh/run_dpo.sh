@@ -11,11 +11,13 @@ fi
 unset __conda_setup
 
 conda activate .env/handbookenv
-cd /mnt/cache/luzimu/rlhf_math
+cd rlhf_math
 
 export NCCL_DEBUG=WARN
 export NCCL_SOCKET_IFNAME=eth0
 
-wandb login "a8fe59167f5543baf6168a0cf5d52773a1bd6bf8"
+wandb login ""
 
-ACCELERATE_LOG_LEVEL=info accelerate launch --config_file alignment-handbook/recipes/accelerate_configs/deepspeed_zero3.yaml alignment-handbook/scripts/run_dpo.py alignment-handbook/recipes/llama-7b-ultrachat/dpo/config_full.yaml
+config=$1
+
+ACCELERATE_LOG_LEVEL=info accelerate launch --config_file alignment-handbook/recipes/accelerate_configs/deepspeed_zero3.yaml alignment-handbook/scripts/run_dpo.py $config
